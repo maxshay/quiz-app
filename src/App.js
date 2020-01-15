@@ -9,7 +9,6 @@ import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import './fonts/Roboto-Regular.ttf'
 import './App.scss';
-import LogoImage from './img/icons8-exam-64.png';
 // Components
 import Quiz from './components/Quiz'
 
