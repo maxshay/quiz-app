@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url(./fonts/Roboto-Black.ttf) format('truetype');
+}
+
+:root {
+  --main-text: #444;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: var(--main-text);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #f3f3f3;
+  // overflow: hidden;
+}
+
+.quiz {
+  padding: 20px;
+  max-width: 600px;
+   
+  &__container {
+    margin-top: 25%;
+    background-color: #fff;
+    padding: 2rem;
+    -webkit-box-shadow: 0px 3px 12px 1px rgba(204,204,204,0.28);
+    -moz-box-shadow: 0px 3px 12px 1px rgba(204,204,204,0.28);
+    box-shadow: 0px 3px 12px 1px rgba(204,204,204,0.28);
+  }
+  &__actual-quiz {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+  }
+  &__start-button span {
+    color: white;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .quiz {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20%;
+
+    &__container {
+      margin: auto 0;
+      min-width: 90%;
+    }
+    &__heading {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+  }
+}
