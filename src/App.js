@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import './fonts/Roboto-Regular.ttf'
 import './App.scss';
-
+import LogoImage from './img/icons8-exam-64.png';
 // Components
 import Quiz from './components/Quiz'
 
@@ -73,6 +73,14 @@ const App = () => {
   }
   return (
     <Container>
+      <nav className="main-nav">
+        <div className="main-nav__icon">
+          <h4 className="m-0">Quiz<span> App</span></h4>
+        </div>
+        <div className="main-nav__save-button">
+          <Button variant="info" className="main-nav__save-button__btn">Save progress</Button>
+        </div>
+      </nav>
       <div className="quiz mx-auto">
         <div className="quiz__container mx-auto">
         <div className="quiz__actual-quiz">
@@ -93,22 +101,22 @@ const App = () => {
             ))
             ) : (
             <div className="w-100">
-            <div className="quiz__heading text-center mt-4 w-100">
-              <h2>Ready to take a quiz!</h2>
+            <div className="quiz__heading text-center w-100">
+              <h2>Ready to take a quiz?</h2>
             </div>
-            <div className="quiz__start-button text-center mx-auto">
+            <div className="quiz__start-button text-center mx-auto mt-5">
               <Button 
                 onClick={nextQuestion} 
                 disabled={loading} 
-                className="m-3 px-4 py-2 postition-relative"
-                variant="primary"
+                className="m-3 px-4 py-2 postition-relative main-start-button"
+                variant="info"
               >
                 {loading ? (
                   <Spinner size="sm" variant="white" animation="border" role="status">
                     <span className="sr-only">Loading...</span>
                   </Spinner>
                 ) : (
-                  <span className="">Start</span>
+                  <span>Start</span>
                 ) 
                 }
               </Button>

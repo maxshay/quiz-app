@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Choice from './Choice';
 const entities = require("entities");
 
 const Choices = ({choices, submitAnswer, incrementQuestionCounter, answer}) => {
   let choicesMarkup = [];
+  const [disabled, setDisabled] = useState(false);
+
+  const setDisabledFunc = () => {
+    setDisabled(true);
+  }
 
   if (choices) {
     choices.forEach((choice, i) => {
@@ -13,6 +18,8 @@ const Choices = ({choices, submitAnswer, incrementQuestionCounter, answer}) => {
                             choice={choice} 
                             decodedChoice={decodedChoice} 
                             submitAnswer={submitAnswer}
+                            disabled={disabled}
+                            setDisabledFunc={setDisabledFunc}
                             incrementQuestionCounter={incrementQuestionCounter} 
                             answer={answer}
                           />

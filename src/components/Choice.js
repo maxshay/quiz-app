@@ -1,15 +1,17 @@
 import React, { useState }from 'react';
 import Button from 'react-bootstrap/Button';
 import { Shake } from 'reshake';
-const Choice = ({decodedChoice, choice, incrementQuestionCounter, answer}) => {
+const Choice = ({decodedChoice, choice, incrementQuestionCounter, disabled,answer,setDisabledFunc}) => {
 
-  const [color, setColor] = useState('primary');
+  const [color, setColor] = useState('info');
   const [shake, setShake] = useState(false);
+  
 
   const submitFromChoice = (e) => {
     e.preventDefault();  
     
     if (e.target.value === answer) {
+        setDisabledFunc();
         setColor('success');
         setTimeout(function() {
           incrementQuestionCounter();
@@ -19,7 +21,7 @@ const Choice = ({decodedChoice, choice, incrementQuestionCounter, answer}) => {
       setColor('danger');
       setTimeout(() => {
         setShake(false);
-      }, 500)
+      }, 300)
     }
 
   }
@@ -39,7 +41,7 @@ const Choice = ({decodedChoice, choice, incrementQuestionCounter, answer}) => {
       active={shake} 
       className="mb-2"
     >
-      <Button onClick={(e) => submitFromChoice(e)} value={choice} variant={color} block>{decodedChoice}</Button>
+      <Button disabled={disabled} onClick={(e) => submitFromChoice(e)} value={choice} variant={color} block>{decodedChoice}</Button>
     </Shake>
   )
 }

@@ -13,6 +13,7 @@
   font-family: 'Roboto';
   color: var(--main-text);
 }
+strong { font-weight: bold; }
 
 body {
   margin: 0;
@@ -20,20 +21,66 @@ body {
   height: 100vh;
   width: 100%;
   background-color: #f3f3f3;
+  background: url('./img/bgbig.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   // overflow: hidden;
+}
+
+.main-nav {
+  width: 100%;
+  position: fixed;
+  height: 70px;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &__save-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    &__btn {
+      height: 100%;
+      border-radius: 0;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1.25rem 1.75rem;
+    h4 {
+      font-size: 1.75rem;
+      color: #17a2b8;
+      span {
+        font-size: 1.5rem;
+        color: #fff;
+      }
+    }
+  }
 }
 
 .quiz {
   padding: 20px;
-  max-width: 600px;
+  max-width: 800px;
    
   &__container {
     margin-top: 25%;
-    background-color: #fff;
-    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.892);
+    
+    padding: 3rem;
     -webkit-box-shadow: 0px 3px 12px 1px rgba(204,204,204,0.28);
     -moz-box-shadow: 0px 3px 12px 1px rgba(204,204,204,0.28);
     box-shadow: 0px 3px 12px 1px rgba(204,204,204,0.28);
+  }
+  &__heading {
+    h2 {
+      color: rgb(111, 111, 111);
+    }
   }
   &__actual-quiz {
     min-height: 300px;
@@ -45,8 +92,18 @@ body {
   }
 }
 
+.main-start-button {
+  border-radius: 0;
+}
+
 
 @media screen and (max-width: 600px) {
+  .main-nav {
+    height: 60px;
+    &__icon {
+      padding: 1rem 1.5rem;
+    }
+  }
   .quiz {
     height: 100vh;
     padding: 0;
@@ -56,13 +113,14 @@ body {
 
     &__container {
       margin: auto 0;
-      min-width: 90%;
+      min-width: 100%;
+      background: transparent;
+      box-shadow: none;
     }
     &__heading {
       h2 {
         font-size: 2rem;
       }
     }
-
   }
 }
